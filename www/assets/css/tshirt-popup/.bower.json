@@ -1,0 +1,41 @@
+{
+  "name": "tshirt-popup",
+  "homepage": "https://github.com/xinix-technology/tshirt-popup",
+  "authors": [
+    "Dwan <me@dwaan.com>"
+  ],
+  "description": "Responsive popup library that easy to configure",
+  "main": "tshirt.popup.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "jquery",
+    "tshirt",
+    "popup"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "animate.css": "~3.2.0",
+    "font-awesome": "~4.2.0",
+    "lato": "~0.2.2"
+  },
+  "_release": "0cde6a48a6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0cde6a48a661c70a5958ca360f30c5e4eee92d0c"
+  },
+  "_source": "git://github.com/xinix-technology/tshirt-popup.git",
+  "_target": "*",
+  "_originalSource": "xinix-technology/tshirt-popup"
+}

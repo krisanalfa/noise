@@ -1,0 +1,8 @@
+{
+    "main": "paxfile.js",
+    "dependencies": {},
+    "devDependencies": {
+        "pax-php": "^0.1.1"
+    },
+    "license": "MIT"
+}

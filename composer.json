@@ -1,0 +1,24 @@
+{
+    "require": {
+        "xinix-technology/norm": "dev-master",
+        "xinix-technology/bono": "dev-master",
+        "xinix-technology/naked2-theme": "dev-master",
+        "krisanalfa/bono-kraken": "dev-master",
+        "ircmaxell/password-compat": "dev-master",
+        "monolog/monolog": ">=1.6.0"
+    },
+    "repositories": [{
+        "type": "vcs",
+        "url": "ssh://tig@xinix.co.id:22033/mcoin/naked2-theme.git"
+    }],
+    "autoload": {
+        "psr-0": {
+            "Noise": "src"
+        },
+        "classmap": [
+            "src/Noise/Facades"
+        ]
+    },
+    "minimum-stability": "dev"
+}
+
