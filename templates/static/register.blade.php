@@ -29,6 +29,7 @@
                 <div class="wrapper">
                     <div id="login">
                         <div class="title">
+                            <h2>Register</h2>
                             <i class="xn xn-unlock-alt xn-5x"></i>
                         </div>
                         <div class="input">

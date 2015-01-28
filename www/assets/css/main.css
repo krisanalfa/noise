@@ -1,18 +1,21 @@
-body { margin: 0; }
+body { margin: 0; background: #f6f8f9; }
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 { margin: 0; }
-a {
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+a,
+.button.solid {
+	border: 0;
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
 }
-#body { padding: 10px; background: #f6f8f9; }
-.box {
+.button.solid:hover { background: #0FB61D; }
+#body { padding: 10px; }
+.box { 
 	border: 1px solid #ddd; background: #fff;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -50,7 +53,7 @@ a {
 
 .commentUser { margin-bottom: 5px; padding-bottom: 20px; border-bottom: 1px solid #ddd; position: relative; }
 .commentUser .avatarArea { width: 70px; position: absolute; top: 0; left: 0; }
-.commentUser .avatar {
+.commentUser .avatar { 
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -70,14 +73,14 @@ a {
 	-o-border-radius: 5px;
 	border-radius: 5px;
 }
-.commentBox textarea { padding: 10px; font-size: 1.1em; resize: none; color: #999; border: 0; height: 70px; }
-.commentBox .imageArea {
+.commentBox textarea { padding: 10px; font-size: 1.1em; resize: none; color: #999; border: 0; height: 80px; }
+.commentBox .postArea { 
 	border-top: 1px solid #ddd; padding: 5px 10px; background: #f6f8f9;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
-.commentBox .imageArea a { font-size: 1.2em; color: #999; }
-.commentBox .imageArea a:hover { color: #08c; }
+.commentBox .postArea a { font-size: 1.2em; color: #999; display: inline-block; vertical-align: middle; line-height: 28px; }
+.commentBox .postArea a:hover { color: #08c; }
 
 .sortReg { margin-bottom: 20px; }
 .sortReg h3 { font-size: 1.1em; color: #999; }
@@ -90,7 +93,7 @@ a {
 .commentArea ul { margin: 0; padding: 0; list-style: none; }
 .commentArea .avatarArea { width: 70px; display: table-cell; vertical-align: middle; }
 .commentArea .avatarArea a { display: inline-block; margin-bottom: 10px; position: relative; }
-.commentArea .avatar {
+.commentArea .avatar { 
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -102,7 +105,7 @@ a {
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
 }
 .commentArea .avatarArea .badgeVote {
-	background: #0FB61D; color: #fff; line-height: 20px; width: 20px; font-size: 0.8em; display: block; text-align: center; position: absolute; top: -5px; right: -5px;
+	background: #0FB61D; color: #fff; line-height: 20px; width: 20px; font-size: 0.8em; display: block; text-align: center; position: absolute; top: -5px; left: -5px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
 	-ms-border-radius: 500em;
@@ -112,14 +115,11 @@ a {
 	-moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.4);
 	box-shadow: 0px 1px 3px rgba(0,0,0,0.4);
 }
-.commentArea .avatarArea .badgeVote.negative {
-	background: #F72525;
-}
 .commentArea .avatarArea .badgeVote i { font-style: normal; }
 .commentArea .content { display: table-cell; vertical-align: middle; width: auto; padding-left: 20px; }
 .commentArea .content .meta .username { font-size: 1.2em; font-weight: 600; }
-.commentArea .content .meta .badge {
-	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px;
+.commentArea .content .meta .badge { 
+	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px; 
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-ms-border-radius: 3px;
@@ -140,14 +140,20 @@ a {
 .commentArea .content .reply a:hover { color: #08c; }
 .commentArea .content .reply li { display: inline-block; margin-right: 15px; vertical-align: middle; }
 .commentArea .content .reply .voteup { margin-right: 10px; padding-right: 10px; border-right: 1px solid #ddd; }
-.commentArea .content .reply li a { font-size: 1em; line-height: 100%; color: #999; margin-bottom: 0; }
+.commentArea .content .reply li a { font-size: 1em; line-height: 100%; color: #999; margin-bottom: 0; letter-spacing: 0.3pt; }
 
-.commentArea .post { margin-bottom: 25px; border-bottom: 1px solid #f5f5f5; padding-bottom: 25px; }
+.commentArea .post { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 25px; }
 .commentArea .nested { margin-left: 30px; }
 .commentArea .nested .avatarArea { width: 60px; display: table-cell; vertical-align: middle; }
 .commentArea .nested .avatar { width: 60px; height: 60px; }
 .commentArea .nested .avatarArea .vote li { margin-right: 5px; }
 .commentArea .nested .avatarArea .vote li:last-child { margin-right: 0px; }
+
+#login { background: #f6f8f9; }
+#login input[type="text"],
+#login input[type="password"] { font-size: 1.1em; }
+/*#login input[type="submit"] { border: 0; }
+#login input[type="submit"]:hover { border: 0; }*/
 
 
 /*============ Custom Select Box =============*/
@@ -156,7 +162,7 @@ a {
 	margin-left: 3px;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
 }
 .trigger:hover { color: #08c!important; }
@@ -174,10 +180,11 @@ a {
 }
 .dropcontainer ul li {
 	padding: 0;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
+input[type="text"] 	transition: font-size: 1.1em;;
 }
 .dropcontainer ul li:first-child { display: none; }
 .dropcontainer ul li a { padding: 5px 30px; display: block; line-height: 130%; }

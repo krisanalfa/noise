@@ -46,10 +46,13 @@
                             <div class="avatar" style="background: url({{ Theme::base('assets/img/default.png') }}) center no-repeat; background-size: cover;"></div>
                         </div>
                         <div class="commentBox">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Leave a message"></textarea>
-                            <div class="imageArea">
-                                <a href="#"><i class="xn xn-image"></i></a>
-                            </div>
+                            <form action="">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Leave a message"></textarea>
+                                <div class="postArea row">
+                                    <a href="#"><i class="xn xn-image"></i></a>
+                                    <input type="submit" class="button solid pull-right" value="Post">
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <nav class="sortReg row">
@@ -68,7 +71,7 @@
                         </div>
                         <div class="span-6 right">
                             <h3>
-                                <a href="register.php">
+                                <a href="{{ URL::site('/register') }}">
                                     <i class="xn xn-edit"></i>Register
                                 </a>
                             </h3>
