@@ -59,11 +59,11 @@ trait RepliesReflection
         if (! is_null($post)) {
             Norm::options('include', true);
 
-            $idPost = $post->getId();
-            $post   = $post->jsonSerialize();
+            $idPost   = $post->getId();
+            $post     = $post->jsonSerialize();
             $threadId = $post['thread_id'];
-            $postId = $post['post_id'];
-            $post   = ArrayHelper::sanitize($post, array('thread_id', 'post_id', 'thread'));
+            $postId   = $post['post_id'];
+            $post     = ArrayHelper::sanitize($post, array('thread_id', 'post_id', 'thread'));
 
             $post['id']                  = $idPost;
             $post['upvotes']             = $this->getUpvotesForPost($idPost);
@@ -82,6 +82,8 @@ trait RepliesReflection
 
         $post->set($data)->save();
 
-        return $this->getReply($post->getId());
+        $data = $this->getReply($post->getId());
+
+        return $data;
     }
 }

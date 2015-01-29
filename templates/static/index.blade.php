@@ -133,10 +133,10 @@
                                 '+reply.content+' \
                             </p> \
                             <ul class="reply"> \
-                                <li class="voteup" vote-for="'+reply.id+'" vote-type="1"> \
+                                <li class="voteup forVote" vote-for="'+reply.id+'" vote-type="1"> \
                                     <a href="#"><i class="xn xn-thumbs-o-up"></i></a> \
                                 </li> \
-                                <li class="votedown"vote-for="'+reply.id+'" vote-type="2"> \
+                                <li class="votedown forVote" vote-for="'+reply.id+'" vote-type="2"> \
                                     <a href="#"><i class="xn xn-thumbs-o-down"></i></a> \
                                 </li> \
                                 <li> \
@@ -199,9 +199,7 @@
                     $(dom.find('li[reply-id="'+reply.id+'"]')[0]).append(makeReplyDom(replyChild, replyChildHasReply));
                 });
             } else {
-                if (reply.reply_for_post_id) {
-                    dom.html('<ul class="nested">'+dom.html()+'</ul>');
-                }
+                dom.html('<ul class="nested postPoint" reply-id="'+reply.id+'">'+dom.html()+'</ul>');
             }
 
             return dom;

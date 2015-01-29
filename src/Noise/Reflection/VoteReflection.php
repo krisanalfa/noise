@@ -48,6 +48,7 @@ trait VoteReflection
 
         if (! is_null($vote)) {
             Norm::options('include', true);
+
             $vote = ArrayHelper::sanitize($vote->jsonSerialize(), array('thread_id', 'post_id', 'type'));
         }
 
@@ -56,10 +57,42 @@ trait VoteReflection
 
     private function newVote(array $data)
     {
-        $vote = Norm::factory('Vote')->newInstance();
+        $connection = Norm::factory('Vote');
+        $criteria = $data;
+        $postId = $criteria['post_id'];
 
-        $vote->set($data)->save();
+        unset($criteria['type']);
 
-        return $this->getVote($vote->getId());
+        $check = $connection->findOne($data);
+
+        if (! is_null($check)) {
+            $codeType = $check->get('type');
+            $type = ($codeType === Vote::UP_VOTE) ? 'up' : 'down';
+
+            return array(
+                'error' => true,
+                'message' => 'Cannot vote, because you have already voted ' . $type,
+            );
+        }
+
+        $before = $connection->findOne($criteria);
+        $neutral = false;
+
+        // Because user has vote up and he wants to vote down, let's remove all votes and don't create any data
+        if (! is_null($before)) {
+            $before->remove();
+
+            $neutral = true;
+        } else {
+            $vote = $connection->newInstance();
+
+            $vote->set($data)->save();
+        }
+
+        return array(
+            'neutral'   => $neutral,
+            'upvotes'   => $this->getUpvotesForPost($postId),
+            'downvotes' => $this->getDownvotesForPost($postId),
+        );
     }
 }

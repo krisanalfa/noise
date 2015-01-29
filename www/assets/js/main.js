@@ -31,10 +31,20 @@ $(function () {
             dataType: 'json',
         })
         .success(function(data) {
-            element.find("a").addClass("voted animated flash");
+            if (data.error) {
+                alert(data.message);
+
+                return;
+            }
+
+            if (data.neutral) {
+                element.closest('.reply').find(".forVote a").removeClass('voted');
+            } else {
+                element.find("a").addClass("voted animated flash");
+            }
 
             var badgeVote = $('#'+element.closest('.post').attr('id')).find('.badgeVote'),
-                x = (element.attr('vote-type') == '1') ? 1 : -1;
+                x = data.upvotes.length - data.downvotes.length;
 
             if (typeof badgeVote[0] == 'undefined') {
                 var voteDom = $('<span class="badgeVote animated bounceIn"> \
@@ -47,16 +57,13 @@ $(function () {
 
                 $($('#'+element.closest('.post').attr('id')).find('.avatarArea a')[0]).append(voteDom);
             } else {
-                var text = $(badgeVote[0]).find('i').text(),
-                    total = parseInt(text) + x;
-
-                if (total === 0) {
+                if (x === 0) {
                     $(badgeVote[0]).remove();
                 } else {
-                    $(badgeVote[0]).find('i').text(total);
+                    $(badgeVote[0]).find('i').text(x);
                 }
 
-                if (total < 0) {
+                if (x < 0) {
                     $(badgeVote[0]).addClass('negative');
                 }
             }
@@ -79,6 +86,8 @@ $(function () {
                 'content': textarea.val(),
             };
 
+        textarea.val('');
+
         form.closest('.replyComment').removeClass('open');
 
         $.ajax({
@@ -89,7 +98,8 @@ $(function () {
         })
         .success(function(data) {
             form.closest('.replyComment').removeClass('open');
-            renderReplyForPost(data, form.closest('.postPoint').attr('reply-id'));
+            form.closest('.postPoint').append(makeReplyDom(data, false));
+            // renderReplyForPost(data, form.closest('.postPoint').attr('reply-id'));
         })
         .fail(function(err) {
             alert('Error while posting');
