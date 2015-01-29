@@ -203,7 +203,7 @@
             return dom;
         }
 
-        $.getJSON('http://localhost/noise/index.php/api/thread/'+threadId, function(data) {
+        $.getJSON(urlSite+'api/thread/'+threadId, function(data) {
             var replies = data.replies;
 
             $.each(replies, function(index, reply) {

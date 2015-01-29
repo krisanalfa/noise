@@ -1,0 +1,38 @@
+{
+  "name": "naked2-theme",
+  "version": "0.0.1",
+  "homepage": "http://xinix.co.id",
+  "authors": [
+    "Dwan <me@dwaan.com>",
+    "Adoel <adoel4razman@gmail.com>"
+  ],
+  "description": "Bone themes based on Naked CSS framework and Blade templating engine",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "naked",
+    "css",
+    "blade",
+    "bono",
+    "themes"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "www/vendor",
+    "vendor"
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.2",
+    "tshirt-popup": "*",
+    "naked": "xinix-technology/naked"
+  }
+}
