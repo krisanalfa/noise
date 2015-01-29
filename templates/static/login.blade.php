@@ -25,21 +25,20 @@
 <body>
     <div id="body">
         <div class="container-fluid">
-            <div class="box">
-                <div class="wrapper">
-                    <div id="login">
-                        <div class="title">
-                            <i class="xn xn-unlock-alt xn-5x"></i>
-                        </div>
-                        <div class="input">
-                            <input type="text" name="username" value="" placeholder="Username">
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
-                        <div class="submit">
-                            <input type="submit" value="Login" class="button solid">
-                            <label class="placeholder"><input type="checkbox" class="checkbox"> Keep me sign in</label>
-                        </div>
-                    </div>
+            <div id="login">
+                <div class="logo">
+                    <img src="{{ Theme::base('assets/img/logo.png') }}" alt="NOISE - Nothing Is True">
+                </div>
+                <div class="input error">
+                    <span class="alertError">Invalid Username</span>
+                    <input type="text" name="username" value="" placeholder="Username / Email">
+                </div>
+                <div class="input">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="submit">
+                    <label class="placeholder"><input type="checkbox" class="checkbox"> Keep me sign in</label>
+                    <input type="submit" value="Login" class="button solid">
                 </div>
             </div>
         </div>

@@ -79,6 +79,16 @@
                     <div class="commentArea">
                         <ul id="commentList"></ul>
                     </div>
+                    <div class="footer">
+                        <ul class="row">
+                            <li class="copyright xlarge-9 large-9 medium-9 small-9 tiny-12">
+                                <p>Copyright © 2015 Xinix Technoolgy.</p>
+                            </li>
+                            <li class="watermark xlarge-3 large-3 medium-3 small-3 tiny-12">
+                                <p>NOISE</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

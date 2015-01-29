@@ -156,17 +156,29 @@ a,
 
 .replyComment { margin: 20px 0; padding-left: 40px; display: none; position: relative; }
 .replyComment.open { display: block; }
-/*.replyComment .avatarArea { width: 60px; display: table-cell; vertical-align: middle; left: 40px; }*/
 .replyComment .avatarArea { width: 60px; position: absolute; top: 0; left: 40px; }
 .replyComment .avatarArea .avatar { width: 60px; height: 60px; }
 .replyComment .commentBox { margin-left: 80px; }
-/*.replyComment { margin: 20px 0; }*/
 
-#login { background: #f6f8f9; }
+#login { background: #fff; padding: 40px 20px; }
+#login .logo { display: inline-block; width: 100%; text-align: center; margin-bottom: 30px; }
+#login .logo img { display: inline-block; width: 80%; }
 #login input[type="text"],
-#login input[type="password"] { font-size: 1.1em; }
-/*#login input[type="submit"] { border: 0; }
-#login input[type="submit"]:hover { border: 0; }*/
+#login input[type="password"] { font-size: 1.1em; margin: 0; background: #FAFBFC; color: #666; }
+#login .input { margin-bottom: 20px; }
+#login .error input[type="text"],
+#login .error input[type="password"] { border-color: #F23030; }
+#login .alertError { color: #F23030; margin-bottom: 3px; display: block; }
+#login .submit { margin-top: 30px; }
+#login .submit .placeholder { text-align: center; display: block; line-height: 120%; margin: 0 0 20px; }
+
+.footer { margin-bottom: 7px; }
+.footer ul { padding: 0; }
+.footer li.copyright,
+.footer li.watermark { text-align: center; }
+.footer li.copyright { margin-bottom: 5px; }
+.footer li p { margin: 0; color: #999; }
+.footer li.watermark p { font-weight: 800; letter-spacing: 0.5pt; }
 
 
 /*============ Custom Select Box =============*/
@@ -208,8 +220,16 @@ input[type="text"] 	transition: font-size: 1.1em;;
 
 
 /*=============== Media Query ==================*/
+@media only screen and (min-width:481px) {
+	#login { padding: 50px; }
+	#login .logo img { width: auto; }
+	.footer li.copyright { text-align: left; margin-bottom: 0; }
+	.footer li.watermark { text-align: right }
+}
+
 @media only screen and (min-width:768px) {
 	#body { padding: 50px; }
 	.commentArea .nested { margin-left: 40px; }
 }
+
 
