@@ -86,8 +86,10 @@
     </div>
 
     <script>
-        var site = '{{ URL::base() }}',
-            threadId = '54c84468c8577abc078b4567';
+        var urlBase  = '{{ URL::base() }}',
+            urlSite  = '{{ URL::site() }}',
+            threadId = '54c84468c8577abc078b4567',
+            userId   = '54c84445c8577abd078b4567' /* Alfa's ID */ ;
 
         $('.noiseReplyBox').attr('thread-id', threadId);
 
@@ -95,10 +97,26 @@
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            var form = $(this),
-                textarea  = $(form.find('textarea')[0]);
+            var form      = $(this),
+                textarea  = $(form.find('textarea')[0])
+                post      = {
+                    'thread_id': threadId,
+                    'created_by': userId,
+                    'content': textarea.val(),
+                };
 
-            console.log(textarea.val());
+            $.ajax({
+                type: 'POST',
+                url: urlSite+'api/reply',
+                data: post,
+                dataType: 'json',
+            })
+            .success(function(data) {
+                renderReply(data, false);
+            })
+            .fail(function(err) {
+                console.log(err);
+            });
         });
 
         function renderReply(reply, hasReply)
@@ -114,11 +132,11 @@
 
             var user = reply.created_by,
                 vote = reply.upvotes.length - reply.downvotes.length,
-                dom = $('<li> \
+                dom  = $('<li> \
                     <div class="post" id="'+reply.id+'"> \
                         <div class="avatarArea"> \
                             <a href="#"> \
-                                <div class="avatar" style="background: url('+site+'assets/img/'+user.avatar+') center no-repeat; background-size: cover;"></div> \
+                                <div class="avatar" style="background: url('+urlBase+'assets/img/'+user.avatar+') center no-repeat; background-size: cover;"></div> \
                             </a> \
                         </div> \
                         <div class="content"> \
@@ -168,6 +186,7 @@
 
             if (hasReply) {
                 var ulClass = (reply.reply_for_thread_id) ? '' : 'nested';
+
                 dom.html('<ul class="'+ulClass+'"><li reply-id="'+reply.id+'">'+dom.html()+'</li></ul>');
 
                 $.each(reply.replies, function(index, replyChild) {
@@ -190,7 +209,7 @@
             $.each(replies, function(index, reply) {
                 var hasReply = (reply.replies.length > 0) ? true : false;
 
-                renderReply(reply, hasReply, true);
+                renderReply(reply, hasReply);
             });
         });
     </script>
