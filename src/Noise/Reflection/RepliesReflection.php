@@ -52,7 +52,7 @@ trait RepliesReflection
         return $posts;
     }
 
-    private function getReply($postId)
+    private function getReply($postId, array $additionalData = array())
     {
         $post = Norm::factory('Post')->findOne($postId);
 
@@ -61,6 +61,8 @@ trait RepliesReflection
 
             $idPost = $post->getId();
             $post   = $post->jsonSerialize();
+            $threadId = $post['thread_id'];
+            $postId = $post['post_id'];
             $post   = ArrayHelper::sanitize($post, array('thread_id', 'post_id', 'thread'));
 
             $post['id']                  = $idPost;
@@ -68,7 +70,7 @@ trait RepliesReflection
             $post['downvotes']           = $this->getDownvotesForPost($idPost);
             $post['replies']             = $this->getRepliesForPost($idPost);
             $post['reply_for_post_id']   = $postId;
-            $post['reply_for_thread_id'] = null;
+            $post['reply_for_thread_id'] = $threadId;
         }
 
         return $post;

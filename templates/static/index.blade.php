@@ -112,7 +112,8 @@
                 dataType: 'json',
             })
             .success(function(data) {
-                renderReply(data, false);
+                console.log(makeReplyDom(data, false)[0]);
+                // renderReply(data, false);
             })
             .fail(function(err) {
                 console.log(err);
@@ -209,6 +210,7 @@
                     $(dom.find('li[reply-id="'+reply.id+'"]')[0]).append(makeReplyDom(replyChild, replyChildHasReply));
                 });
             } else {
+                console.log(reply.reply_for_post_id);
                 if (reply.reply_for_post_id) {
                     dom.html('<ul class="nested">'+dom.html()+'</ul>');
                 }
