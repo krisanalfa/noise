@@ -24,25 +24,21 @@
     <script type="text/javascript" src="{{ Theme::base('assets/js/main.js') }}"></script>
 </head>
 <body>
-    <div id="body">
+	<main class="home">
         <div class="container-fluid">
-            <div id="login">
-                <div class="logo">
-                    <img src="{{ Theme::base('assets/img/logo.png') }}" alt="NOISE - Nothing Is True">
-                </div>
-                <div class="input">
-                    <!-- <span class="alertError">Invalid Username</span> -->
-                    <input type="text" name="username" value="" placeholder="Username / Email">
-                </div>
-                <div class="input">
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <div class="submit">
-                    <label class="placeholder"><input type="checkbox" class="checkbox"> Keep me sign in</label>
-                    <input type="submit" value="Login" class="button solid">
-                </div>
-            </div>
+        	<div class="landingPage">
+	            <div class="logo">
+                	<div class="icon" style="background: url({{ Theme::base('assets/img/logo.png') }}) center no-repeat; background-size: cover;"></div>
+	            </div>
+	            <div class="desc">
+	            	<h2><strong>NOISE</strong>, The Discussion Machine you've been waiting for.</h2>
+	            </div>
+	            <div class="buttonArea">
+	            	<a class="button solid" href="{{ URL::site('/index') }}">Example <i class="xn xn-comments"></i></a>
+	            </div>
+        	</div>
         </div>
-    </div>
+        <div class="background"></div>
+    </main>
 </body>
 </html>

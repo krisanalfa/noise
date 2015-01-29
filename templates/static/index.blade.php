@@ -19,6 +19,7 @@
     <!-- Dev JS -->
     <script type="text/javascript" src="{{ Theme::base('assets/js/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ Theme::base('assets/css/tshirt-popup/tshirt-popup.js') }}"></script>
+    <script type="text/javascript" src="{{ Theme::base('assets/js/jQuery.fileinput.js') }}"></script>
     <script type="text/javascript" src="{{ Theme::base('assets/js/select.js') }}"></script>
 </head>
 <body>
@@ -236,8 +237,8 @@
 
         function openWindow(url, windowTitle)
         {
-            var width = 500;
-            var height = 500;
+            var width = 760;
+            var height = 480;
             var left = parseInt((screen.availWidth/2) - (width/2));
             var top = parseInt((screen.availHeight/2) - (height/2));
             var windowFeatures = "width=" + width + ",height=" + height + ",status,resizable,left=" + left + ",top=" + top + "screenX=" + left + ",screenY=" + top;

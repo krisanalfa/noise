@@ -19,27 +19,77 @@
     <!-- Dev JS -->
     <script type="text/javascript" src="{{ Theme::base('assets/js/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ Theme::base('assets/css/tshirt-popup/tshirt-popup.js') }}"></script>
+    <script type="text/javascript" src="{{ Theme::base('assets/js/jQuery.fileinput.js') }}"></script>
     <script type="text/javascript" src="{{ Theme::base('assets/js/select.js') }}"></script>
-    <script type="text/javascript" src="{{ Theme::base('assets/js/main.js') }}"></script>
+    <script type="text/javascript" src="{{ Theme::base('assets/js/register.js') }}"></script>
 </head>
 <body>
     <div id="body">
         <div class="container-fluid">
             <div class="box">
                 <div class="wrapper">
-                    <div id="login">
-                        <div class="title">
-                            <h2>Register</h2>
-                            <i class="xn xn-unlock-alt xn-5x"></i>
-                        </div>
-                        <div class="input">
-                            <input type="text" name="username" value="" placeholder="Username">
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
-                        <div class="submit">
-                            <input type="submit" value="Login" class="button solid">
-                            <label class="placeholder"><input type="checkbox" class="checkbox"> Keep me sign in</label>
-                        </div>
+                    <div class="profile">
+                        <fieldset>
+                            <legend>Register</legend>
+                            <form action="" method="post" class="row">
+                                <div class="row">
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row profilePicture">
+                                            <label for="file">Choose Avatar</label>
+                                            <div class="avatarArea">
+                                                <div class="avatar" style="background: url({{ Theme::base('assets/img/default.png') }}) center no-repeat; background-size: cover;"></div>
+                                            </div>
+                                            <div class="uploadImage">
+                                                <input type="file" name="file" id="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row">
+                                            <label for="name">Username</label>
+                                            <input type="text" name="name" placeholder="Input Username" value="" />
+                                        </div>
+                                        <div class="row">
+                                            <label for="email">Email</label>
+                                            <input type="text" name="email" placeholder="Input email" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row">
+                                            <label for="name">First Name</label>
+                                            <input type="text" name="name" placeholder="Input Name" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row">
+                                            <label for="password">Password</label>
+                                            <input type="password" name="password" placeholder="Input Password" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row">
+                                            <label for="name">Last Name</label>
+                                            <input type="text" name="name2" placeholder="Input Name" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="block xlarge-6 large-6 medium-6 small-6 tiny-12">
+                                        <div class="row">
+                                            <label for="password">Retype Password</label>
+                                            <input type="password" name="password2" placeholder="Retype Password" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row buttonArea">
+                                    <div class="block pull-right">
+                                        <input type="submit" name="submit" value="Save" class="button solid" />
+                                    </div>
+                                </div>
+                            </form>
+                        </fieldset>
                     </div>
                 </div>
             </div>
