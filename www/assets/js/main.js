@@ -119,6 +119,8 @@ $(function () {
                 'content': textarea.val(),
             };
 
+        textarea.val('');
+
         $.ajax({
             type: 'POST',
             url: urlSite+'api/reply',
@@ -132,4 +134,13 @@ $(function () {
             console.log(err);
         });
     });
+
+    // $('.loginButton').click(function(event) {
+    //     event.preventDefault();
+    //     event.stopImmediatePropagation();
+
+    //     var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";
+
+    //     window.open("http://xinix.co.id", "mywindow", strWindowFeatures);
+    // });
 });

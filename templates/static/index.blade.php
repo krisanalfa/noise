@@ -29,11 +29,11 @@
                     <div class="headerArea">
                         <nav class="row">
                             <div class="span-6">
-                                <h3><span class="count">5</span>Comments</h3>
+                                <h3><span class="count"></span>Comments</h3>
                             </div>
                             <div class="span-6 right">
                                 <h3>
-                                    <a href="{{ URL::site('/login') }}">
+                                    <a href="javascript: openWindow('{{ URL::site('/login') }}', 'Login')">
                                         <i class="xn xn-sign-in"></i>Login
                                     </a>
                                 </h3>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="span-6 right">
                             <h3>
-                                <a href="{{ URL::site('/register') }}">
+                                <a href="javascript: openWindow('{{ URL::site('/register') }}', 'Register')">
                                     <i class="xn xn-edit"></i>Register
                                 </a>
                             </h3>
@@ -82,7 +82,7 @@
                     <div class="footer">
                         <ul class="row">
                             <li class="copyright xlarge-9 large-9 medium-9 small-9 tiny-12">
-                                <p>Copyright © 2015 Xinix Technoolgy.</p>
+                                <p>Copyright © 2015 Xinix Technolgy.</p>
                             </li>
                             <li class="watermark xlarge-3 large-3 medium-3 small-3 tiny-12">
                                 <p>NOISE</p>
@@ -98,7 +98,8 @@
         var urlBase   = '{{ URL::base() }}',
             urlSite   = '{{ URL::site() }}',
             threadId  = '54c84468c8577abc078b4567',
-            userLogin = {}
+            userLogin = {},
+            counter   = 0,
             userId    = '54c84445c8577abd078b4567' /* Alfa's ID */ ;
 
         $('.noiseReplyBox').attr('thread-id', threadId);
@@ -116,6 +117,8 @@
 
         function makeReplyDom(reply, hasReply)
         {
+            counter++;
+
             hasReply = typeof hasReply !== undefined ? hasReply : false;
 
             var user = reply.created_by,
@@ -212,6 +215,8 @@
                 dom.html('<ul class="nested postPoint" reply-id="'+reply.id+'">'+dom.html()+'</ul>');
             }
 
+            $('.headerArea .count').text(counter);
+
             return dom;
         }
 
@@ -228,6 +233,16 @@
                 });
             });
         });
+
+        function openWindow(url, windowTitle)
+        {
+            var width = 500;
+            var height = 500;
+            var left = parseInt((screen.availWidth/2) - (width/2));
+            var top = parseInt((screen.availHeight/2) - (height/2));
+            var windowFeatures = "width=" + width + ",height=" + height + ",status,resizable,left=" + left + ",top=" + top + "screenX=" + left + ",screenY=" + top;
+            myWindow = window.open(url, windowTitle, windowFeatures);
+        }
     </script>
 
     <script type="text/javascript" src="{{ Theme::base('assets/js/main.js') }}"></script>
