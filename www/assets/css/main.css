@@ -8,14 +8,14 @@ h6 { margin: 0; }
 a,
 .button.solid {
 	border: 0;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
 }
 .button.solid:hover { background: #0FB61D; }
 #body { padding: 10px; }
-.box {
+.box { 
 	border: 1px solid #ddd; background: #fff;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -53,7 +53,7 @@ a,
 
 .commentUser { margin-bottom: 5px; padding-bottom: 20px; border-bottom: 1px solid #ddd; position: relative; }
 .commentUser .avatarArea { width: 70px; position: absolute; top: 0; left: 0; }
-.commentUser .avatar {
+.commentUser .avatar { 
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -74,7 +74,7 @@ a,
 	border-radius: 5px;
 }
 .commentBox textarea { padding: 10px; font-size: 1.1em; resize: none; color: #999; border: 0; height: 80px; }
-.commentBox .postArea {
+.commentBox .postArea { 
 	border-top: 1px solid #ddd; padding: 5px 10px; background: #f6f8f9;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -93,7 +93,7 @@ a,
 .commentArea ul { margin: 0; padding: 0; list-style: none; }
 .commentArea .avatarArea { width: 70px; display: table-cell; vertical-align: middle; }
 .commentArea .avatarArea a { display: inline-block; margin-bottom: 10px; position: relative; }
-.commentArea .avatar {
+.commentArea .avatar { 
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -115,14 +115,11 @@ a,
 	-moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.4);
 	box-shadow: 0px 1px 3px rgba(0,0,0,0.4);
 }
-.commentArea .avatarArea .badgeVote.negative {
-	background: #F23030;
-}
 .commentArea .avatarArea .badgeVote i { font-style: normal; }
 .commentArea .content { display: table-cell; vertical-align: middle; width: auto; padding-left: 20px; }
 .commentArea .content .meta .username { font-size: 1.2em; font-weight: 600; }
-.commentArea .content .meta .badge {
-	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px;
+.commentArea .content .meta .badge { 
+	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px; 
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-ms-border-radius: 3px;
@@ -144,6 +141,10 @@ a,
 .commentArea .content .reply li { display: inline-block; margin-right: 15px; vertical-align: middle; }
 .commentArea .content .reply .voteup { margin-right: 10px; padding-right: 10px; border-right: 1px solid #ddd; }
 .commentArea .content .reply li a { font-size: 1em; line-height: 100%; color: #999; margin-bottom: 0; letter-spacing: 0.3pt; }
+.commentArea .content .reply li.voteup a:hover { color: #0FB61D; }
+.commentArea .content .reply li.votedown a:hover { color: #F23030; }
+.commentArea .content .reply .voteup .voted { color: #0FB61D; }
+.commentArea .content .reply .votedown .voted { color: #F23030; }
 
 .commentArea .post { margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 25px; }
 .commentArea .nested { margin-left: 30px; }
@@ -151,6 +152,14 @@ a,
 .commentArea .nested .avatar { width: 60px; height: 60px; }
 .commentArea .nested .avatarArea .vote li { margin-right: 5px; }
 .commentArea .nested .avatarArea .vote li:last-child { margin-right: 0px; }
+
+.replyComment { margin: 20px 0; padding-left: 40px; display: none; position: relative; }
+.replyComment.open { display: block; }
+/*.replyComment .avatarArea { width: 60px; display: table-cell; vertical-align: middle; left: 40px; }*/
+.replyComment .avatarArea { width: 60px; position: absolute; top: 0; left: 40px; }
+.replyComment .avatarArea .avatar { width: 60px; height: 60px; }
+.replyComment .commentBox { margin-left: 80px; }
+/*.replyComment { margin: 20px 0; }*/
 
 #login { background: #f6f8f9; }
 #login input[type="text"],
@@ -165,7 +174,7 @@ a,
 	margin-left: 3px;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
 }
 .trigger:hover { color: #08c!important; }
@@ -183,9 +192,9 @@ a,
 }
 .dropcontainer ul li {
 	padding: 0;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
 input[type="text"] 	transition: font-size: 1.1em;;
 }

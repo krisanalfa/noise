@@ -10,4 +10,14 @@ $(function () {
 		width: 700
 	});
 
+	$(document).on('click', ".replyButton", function(event) {
+		event.preventDefault();
+		$(this).closest(".post").find(".replyComment").addClass("open");
+	})
+
+	$(document).on('click', ".reply .voteup, .reply .votedown", function(event) {
+		event.preventDefault();
+		$(this).find("a").addClass("voted animated flash");
+	})
+
 });

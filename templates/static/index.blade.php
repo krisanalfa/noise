@@ -61,7 +61,7 @@
                                 <p class="sort">
                                     Sort by
                                     <select class="turnintodropdown">
-                                        <option data-sort="best">Best</option>
+                                        <option data-sort="best">Newest</option>
                                         <option data-sort="newest">Newest</option>
                                         <option data-sort="oldest">Oldest</option>
                                     </select>
@@ -165,15 +165,29 @@
                                     <i class="sparator xn xn-circle"></i> \
                                 </li> \
                                 <li> \
-                                    <a href="#">Reply</a> \
+                                    <a href="#" class="replyButton">Reply</a> \
                                 </li> \
                             </ul> \
+                        </div> \
+                        <div class="replyComment animated fadeIn"> \
+                            <div class="avatarArea"> \
+                                <div class="avatar" style="background: url('+urlBase+'assets/img/'+user.avatar+') center no-repeat; background-size: cover;"></div> \
+                            </div> \
+                            <div class="commentBox"> \
+                                <form action=""> \
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="Reply a message"></textarea> \
+                                    <div class="postArea row"> \
+                                        <a href="#"><i class="xn xn-image"></i></a> \
+                                        <input type="submit" class="button solid pull-right" value="Post"> \
+                                    </div> \
+                                </form> \
+                            </div> \
                         </div> \
                     </div> \
                 </li>');
 
             if (vote !== 0) {
-                var voteDom = $('<span class="badgeVote"> \
+                var voteDom = $('<span class="badgeVote animated bounceIn"> \
                     <i>'+vote+'</i> \
                 </span>');
 
