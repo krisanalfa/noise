@@ -8,11 +8,12 @@ use JsonKit\JsonKit;
 use Noise\Vote;
 use Noise\Reflection\VoteReflection;
 use Noise\Reflection\RepliesReflection;
+use Noise\Reflection\UserReflection;
 use ArrayHelper;
 
 class ApiController extends Controller
 {
-    use VoteReflection, RepliesReflection;
+    use VoteReflection, RepliesReflection, UserReflection;
 
     public function mapRoute()
     {
@@ -20,6 +21,19 @@ class ApiController extends Controller
         $this->map('/thread', 'createNewThread')->via('POST');
         $this->map('/thread/:id', 'getThread')->via('GET');
         $this->map('/reply', 'reply')->via('POST');
+        $this->map('/vote', 'vote')->via('POST');
+        $this->map('/user/:id', 'getUser')->via('GET');
+    }
+
+    public function vote()
+    {
+        $data = array_merge(array('thread_id' => null,'post_id' => null), $this->request->post());
+        $vote = $this->newVote($data);
+
+        Norm::options('include', true);
+        $this->data['data'] = JsonKit::encode($vote);
+
+        $this->prepareResponse();
     }
 
     public function reply()
@@ -27,12 +41,10 @@ class ApiController extends Controller
         $data = array_merge(array('thread_id' => null,'post_id' => null), $this->request->post());
         $post = $this->newReply($data);
 
+        Norm::options('include', true);
         $this->data['data'] = JsonKit::encode($post);
 
-        $this->app->response->headers['Content-Type']                 = 'application/json';
-        $this->app->response->headers['Access-Control-Allow-Origin']  = '*';
-        $this->app->response->headers['Access-Control-Allow-Methods'] = '*';
-        $this->app->response->headers['Access-Control-Max-Age']       = '3600';
+        $this->prepareResponse();
     }
 
     public function api()
@@ -43,10 +55,7 @@ class ApiController extends Controller
 
         $this->data['data'] = JsonKit::encode($this->data['data']);
 
-        $this->app->response->headers['Content-Type']                 = 'application/json';
-        $this->app->response->headers['Access-Control-Allow-Origin']  = '*';
-        $this->app->response->headers['Access-Control-Allow-Methods'] = '*';
-        $this->app->response->headers['Access-Control-Max-Age']       = '3600';
+        $this->prepareResponse();
     }
 
     public function createNewThread()
@@ -89,6 +98,16 @@ class ApiController extends Controller
 
         $this->data['data'] = JsonKit::encode($this->data['data']);
 
+        $this->prepareResponse();
+    }
+
+    public function getUser($id)
+    {
+        $this->data['data'] = JsonKit::encode($this->findUser($id));
+    }
+
+    private function prepareResponse()
+    {
         $this->app->response->headers['Content-Type']                 = 'application/json';
         $this->app->response->headers['Access-Control-Allow-Origin']  = '*';
         $this->app->response->headers['Access-Control-Allow-Methods'] = '*';

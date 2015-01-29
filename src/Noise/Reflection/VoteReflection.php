@@ -41,4 +41,25 @@ trait VoteReflection
 
         return $upvotes;
     }
+
+    private function getVote($voteId)
+    {
+        $vote = Norm::factory('Vote')->findOne($voteId);
+
+        if (! is_null($vote)) {
+            Norm::options('include', true);
+            $vote = ArrayHelper::sanitize($vote->jsonSerialize(), array('thread_id', 'post_id', 'type'));
+        }
+
+        return $vote;
+    }
+
+    private function newVote(array $data)
+    {
+        $vote = Norm::factory('Vote')->newInstance();
+
+        $vote->set($data)->save();
+
+        return $this->getVote($vote->getId());
+    }
 }
