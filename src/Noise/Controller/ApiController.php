@@ -19,6 +19,20 @@ class ApiController extends Controller
         $this->map('/', 'api')->via('GET');
         $this->map('/thread', 'createNewThread')->via('POST');
         $this->map('/thread/:id', 'getThread')->via('GET');
+        $this->map('/reply', 'reply')->via('POST');
+    }
+
+    public function reply()
+    {
+        $data = array_merge(array('thread_id' => null,'post_id' => null), $this->request->post());
+        $post = $this->newReply($data);
+
+        $this->data['data'] = JsonKit::encode($post);
+
+        $this->app->response->headers['Content-Type']                 = 'application/json';
+        $this->app->response->headers['Access-Control-Allow-Origin']  = '*';
+        $this->app->response->headers['Access-Control-Allow-Methods'] = '*';
+        $this->app->response->headers['Access-Control-Max-Age']       = '3600';
     }
 
     public function api()
@@ -26,7 +40,8 @@ class ApiController extends Controller
         $this->data['data']            = array();
         $this->data['data']['name']    = 'Noise';
         $this->data['data']['version'] = '1.0.0';
-        $this->data['data']            = JsonKit::encode($this->data['data']);
+
+        $this->data['data'] = JsonKit::encode($this->data['data']);
 
         $this->app->response->headers['Content-Type']                 = 'application/json';
         $this->app->response->headers['Access-Control-Allow-Origin']  = '*';

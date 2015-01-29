@@ -25,7 +25,7 @@
 <body>
     <div id="body">
         <div class="container-fluid">
-            <div class="box">
+            <div class="box noiseReplyBox">
                 <div class="wrapper">
                     <div class="headerArea">
                         <nav class="row">
@@ -46,7 +46,7 @@
                             <div class="avatar" style="background: url({{ Theme::base('assets/img/default.png') }}) center no-repeat; background-size: cover;"></div>
                         </div>
                         <div class="commentBox">
-                            <form action="">
+                            <form action="" class="noiseForm">
                                 <textarea name="" id="" cols="30" rows="10" placeholder="Leave a message"></textarea>
                                 <div class="postArea row">
                                     <a href="#"><i class="xn xn-image"></i></a>
@@ -78,7 +78,7 @@
                         </div>
                     </nav>
                     <div class="commentArea">
-                        <ul></ul>
+                        <ul id="commentList"></ul>
                     </div>
                 </div>
             </div>
@@ -86,15 +86,26 @@
     </div>
 
     <script>
-        var site = '{{ URL::base() }}';
+        var site = '{{ URL::base() }}',
+            threadId = '54c84468c8577abc078b4567';
+
+        $('.noiseReplyBox').attr('thread-id', threadId);
+
+        $('.noiseForm').submit(function(event) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            var form = $(this),
+                textarea  = $(form.find('textarea')[0]);
+
+            console.log(textarea.val());
+        });
 
         function renderReply(reply, hasReply)
         {
             hasReply = typeof hasReply !== undefined ? hasReply : false;
 
-            dom = makeReplyDom(reply, hasReply);
-
-            $('.commentArea ul').append(dom);
+            $('.commentArea ul#commentList').append(makeReplyDom(reply, hasReply));
         }
 
         function makeReplyDom(reply, hasReply)
@@ -143,8 +154,6 @@
                     </div> \
                 </li>');
 
-            var thisReplyHasReply = (reply.replies.length > 0) ? true : false;
-
             if (vote !== 0) {
                 var voteDom = $('<span class="badgeVote"> \
                     <i>'+vote+'</i> \
@@ -158,12 +167,13 @@
             }
 
             if (hasReply) {
-                dom.html('<ul class="nested"><li>'+dom.html()+'</li></ul>');
+                var ulClass = (reply.reply_for_thread_id) ? '' : 'nested';
+                dom.html('<ul class="'+ulClass+'"><li reply-id="'+reply.id+'">'+dom.html()+'</li></ul>');
 
                 $.each(reply.replies, function(index, replyChild) {
                     var replyChildHasReply = (replyChild.replies.length > 0) ? true : false;
 
-                    $(dom.find('ul.nested li')[0]).append(makeReplyDom(replyChild, replyChildHasReply));
+                    $(dom.find('li[reply-id="'+reply.id+'"]')[0]).append(makeReplyDom(replyChild, replyChildHasReply));
                 });
             } else {
                 if (reply.reply_for_post_id) {
@@ -174,7 +184,7 @@
             return dom;
         }
 
-        $.getJSON('http://localhost/noise/index.php/api/thread/54c84468c8577abc078b4567', function(data) {
+        $.getJSON('http://localhost/noise/index.php/api/thread/'+threadId, function(data) {
             var replies = data.replies;
 
             $.each(replies, function(index, reply) {
