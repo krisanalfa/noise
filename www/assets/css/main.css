@@ -8,14 +8,14 @@ h6 { margin: 0; }
 a,
 .button.solid {
 	border: 0;
-	-webkit-transition: all 0.5s ease; 
-	-moz-transition: all 0.5s ease; 
-	-o-transition: all 0.5s ease; 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
 .button.solid:hover { background: #0FB61D; }
 #body { padding: 10px; }
-.box { 
+.box {
 	background: #fff;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -53,7 +53,7 @@ a,
 
 .commentUser { margin-bottom: 5px; padding-bottom: 20px; border-bottom: 1px solid #ddd; position: relative; }
 .commentUser .avatarArea { width: 70px; position: absolute; top: 0; left: 0; }
-.commentUser .avatar { 
+.commentUser .avatar {
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -74,7 +74,7 @@ a,
 	border-radius: 5px;
 }
 .commentBox textarea { padding: 10px; font-size: 1.1em; resize: none; color: #999; border: 0; height: 80px; }
-.commentBox .postArea { 
+.commentBox .postArea {
 	border-top: 1px solid #ddd; padding: 5px 10px; background: #f6f8f9;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -93,7 +93,7 @@ a,
 .commentArea ul { margin: 0; padding: 0; list-style: none; }
 .commentArea .avatarArea { width: 70px; display: table-cell; vertical-align: middle; }
 .commentArea .avatarArea a { display: inline-block; margin-bottom: 10px; position: relative; }
-.commentArea .avatar { 
+.commentArea .avatar {
 	width: 70px; height: 70px;
 	-webkit-border-radius: 500em;
 	-moz-border-radius: 500em;
@@ -119,8 +119,8 @@ a,
 .commentArea .avatarArea .badgeVote.negative { background: #F23030; }
 .commentArea .content { display: table-cell; vertical-align: middle; width: auto; padding-left: 20px; }
 .commentArea .content .meta .username { font-size: 1.2em; font-weight: 600; }
-.commentArea .content .meta .badge { 
-	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px; 
+.commentArea .content .meta .badge {
+	background: #999; color: #fff; padding: 2px 5px; font-size: 0.8em; letter-spacing: 0.3pt; margin-left: 5px;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-ms-border-radius: 3px;
@@ -160,7 +160,7 @@ a,
 .replyComment .avatarArea .avatar { width: 60px; height: 60px; }
 .replyComment .commentBox { margin-left: 80px; }
 
-#login { 
+#login {
 	background: #fff; padding: 40px 20px; border: 0;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -242,7 +242,7 @@ a,
 	-ms-filter: blur(20px);
 	filter: blur(20px);
 }
-.landingPage { padding: 40px 50px; }
+.landingPage { padding: 40px 50px; width: 100%; }
 .landingPage .logo { margin-bottom: 60px; }
 .landingPage .logo .icon { height: 41px; width: 88px; }
 .landingPage .desc { margin-bottom: 60px; }
@@ -267,7 +267,7 @@ a,
 	margin-left: 3px;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
 .trigger:hover { color: #08c!important; }
@@ -285,9 +285,9 @@ a,
 }
 .dropcontainer ul li {
 	padding: 0;
-	-webkit-transition: all 0.5s ease; 
-	-moz-transition: all 0.5s ease; 
-	-o-transition: all 0.5s ease; 
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
 .dropcontainer ul li:first-child { display: none; }
@@ -300,34 +300,34 @@ a,
 
 /*============ Custom Upload Elements =============*/
 .customfile-input { position: absolute; height: 100px; cursor: pointer; background: transparent; border: 0; opacity: 0; -moz-opacity: 0; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); z-index: 999; }
-.customfile { 
+.customfile {
 	position: relative; width: 100%; cursor: pointer; overflow: hidden;
-	-moz-border-radius:7px; 
-	-webkit-border-radius:7px; 
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
 	border-radius:7px;
 }
 .customfile-disabled { opacity: .5; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); cursor: default; }
 .customfile-feedback { display: block; font-size: 1em; color: #999; font-style: italic; padding: 5px 25px 5px 3px; border-bottom: 1px solid #ddd; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
 .customfile-feedback-populated { color: #999; font-style: normal; background: url(../img/icon-generic.gif) left 6px no-repeat; padding: 5px 10px 5px 20px; }
 .customfile-button { background: url(../img/search.png) center no-repeat; float: right; text-indent: -66666em; background-size: cover; width: 20px; height: 20px; background-position: 0 0px; padding: 0; outline: 0; margin-top: 4px; }
-.customfile-hover .customfile-button, 
+.customfile-hover .customfile-button,
 .customfile-focus .customfile-button  { background-position: 0 -20px; }
 .customfile-focus .customfile-button { outline: 1px dotted #ccc;  }
 
 /*file type icons*/
-.customfile-ext-jpg, 
-.customfile-ext-gif, 
-.customfile-ext-png, 
-.customfile-ext-jpeg, 
+.customfile-ext-jpg,
+.customfile-ext-gif,
+.customfile-ext-png,
+.customfile-ext-jpeg,
 .customfile-ext-bmp { background-image: url(../img/icon-image.gif);}
-.customfile-ext-mp3, 
-.customfile-ext-mp4, 
-.customfile-ext-mov, 
-.customfile-ext-swf, 
-.customfile-ext-wav, 
+.customfile-ext-mp3,
+.customfile-ext-mp4,
+.customfile-ext-mov,
+.customfile-ext-swf,
+.customfile-ext-wav,
 .customfile-ext-m4v { background-image: url(../img/icon-media.gif);}
-.customfile-ext-zip, 
-.customfile-ext-tar, 
+.customfile-ext-zip,
+.customfile-ext-tar,
 .customfile-ext-sit { background-image: url(../img/icon-zip.gif);}
 
 
