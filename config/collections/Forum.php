@@ -14,7 +14,6 @@ return array(
     'schema' => array(
         'name'       => String::create('name')->filter('trim|required')->set('list-column', true),
         'content'    => Text::create('content')->filter('trim|required')->set('list-column', true),
-        'threads'    => ReferenceArray::create('threads')->filter('trim|required')->set('list-column', true),
         'created_by' => Reference::create('created_by')->to('User', 'username')->filter('trim|required')->set('list-column', true)->set('generated', true),
     ),
 );

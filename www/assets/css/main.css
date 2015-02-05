@@ -14,7 +14,7 @@ a,
 	transition: all 0.5s ease;
 }
 .button.solid:hover { background: #0FB61D; }
-#body { padding: 10px; }
+/*#body { padding: 10px; }*/
 .box {
 	background: #fff;
 	-webkit-border-radius: 5px;
@@ -340,6 +340,6 @@ a,
 }
 
 @media only screen and (min-width:768px) {
-	#body { padding: 50px; }
+	/*#body { padding: 50px; }*/
 	.commentArea .nested { margin-left: 40px; }
 }
