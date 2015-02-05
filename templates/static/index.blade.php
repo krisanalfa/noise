@@ -33,6 +33,12 @@
                 <div class="desc">
                     <h2><strong>NOISE</strong>, The Discussion Machine you've been waiting for.</h2>
                 </div>
+                <blockquote>
+                    <p><i>
+                        "To say that nothing is true, is to realize that the foundations of society are fragile, and that we must be the shepherds of our own civilization."
+                    </i></p>
+                    <footer><cite title="Ezio Auditore da Firenze">Ezio Auditore</cite></footer>
+                </blockquote>
                 <div class="buttonArea">
                     <a class="button solid" href="{{ URL::site('/example') }}">Example <i class="xn xn-comments"></i></a>
                 </div>
