@@ -31,7 +31,7 @@ class ApiController extends Controller
 
     public function js()
     {
-        $this->data['minify'] = $this->request->get('minify') ?: true;
+        $this->data['minify'] = $this->request->get('minify') ?: false;
 
         $this->app->response->headers['Content-Type'] = 'text/javascript';
     }

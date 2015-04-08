@@ -29,7 +29,7 @@ a,
 	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
-.box .wrapper { padding: 20px 30px; }
+.box .wrapper { padding: 10px; }
 .span-6.right { text-align: right; }
 .span-6.right a { color: #999; }
 .span-6.right a:hover { color: #08c; }
@@ -255,7 +255,7 @@ a,
 .landingPage .buttonArea a { font-size: 1.5em; padding: 8px 25px; }
 .landingPage .buttonArea a i { margin-left: 5px; }
 
-.footer { margin-bottom: 7px; }
+/*.footer { margin-bottom: 7px; }*/
 .footer ul { padding: 0; }
 .footer li.copyright,
 .footer li.watermark { text-align: center; }

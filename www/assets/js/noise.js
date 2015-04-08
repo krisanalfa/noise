@@ -1,6 +1,6 @@
 var userLogin = {},
     counter   = 0,
-    userId    = '54c84445c8577abd078b4567' /* Alfa's ID */ ;
+    userId    = '55251cf68ead0efd180041a8' /* Alfa's ID */ ;
 
 $('.noiseReplyBox').attr('thread-id', threadId);
 $('.sort').hide();

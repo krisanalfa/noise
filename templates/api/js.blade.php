@@ -16,7 +16,7 @@
         var threadId = data.thread_id,
             iframe = $('<iframe />').attr('src', '{{ URL::site("/api/html") }}'+'/'+threadId);
 
-        iframe.attr('style', 'width: 100% !important; border: none !important; overflow: hidden !important; height: 272px !important;');
+        iframe.attr('style', 'width: 100% !important; border: none !important; overflow: hidden !important; height: auto !important;');
         iframe.appendTo('#noise-root');
     })
     .fail(function(err) {
