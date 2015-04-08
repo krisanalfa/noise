@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{{ Theme::base('assets/css/animate.css/animate.min.css') }}" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ Theme::base('assets/css/jacket-awesome/jacket-awesome.css') }}" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ Theme::base('assets/css/tshirt-popup/tshirt-popup.min.css') }}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="{{ Theme::base('assets/font/style.css') }}" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ Theme::base('assets/css/main.css') }}" media="screen" />
 </head>
 <body>

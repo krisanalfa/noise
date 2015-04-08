@@ -47,59 +47,59 @@ function makeReplyDom(reply, hasReply)
 
     var user = reply.created_by,
         vote = reply.upvotes.length - reply.downvotes.length,
-        dom  = $('<li> \
-            <div class="post" id="'+reply.id+'"> \
-                <div class="avatarArea"> \
-                    <a href="#"> \
-                        <div class="avatar" style="background: url('+urlBase+'assets/img/'+user.avatar+') center no-repeat; background-size: cover;"></div> \
-                    </a> \
-                </div> \
-                <div class="content"> \
-                    <ul class="meta"> \
-                        <li> \
-                            <a class="username" href="">'+user.username+'</a> \
-                        </li> \
-                        <li> \
-                            <i class="sparator xn xn-circle"></i> \
-                        </li> \
-                        <li> \
-                            <span class="time">1 months ago</span> \
-                        </li> \
-                    </ul> \
-                    <p> \
-                        '+reply.content+' \
-                    </p> \
-                    <ul class="reply"> \
-                        <li class="voteup forVote" vote-for="'+reply.id+'" vote-type="1"> \
-                            <a href="#"><i class="xn xn-thumbs-o-up"></i></a> \
-                        </li> \
-                        <li class="votedown forVote" vote-for="'+reply.id+'" vote-type="2"> \
-                            <a href="#"><i class="xn xn-thumbs-o-down"></i></a> \
-                        </li> \
-                        <li> \
-                            <i class="sparator xn xn-circle"></i> \
-                        </li> \
-                        <li> \
-                            <a href="#" class="replyButton">Reply</a> \
-                        </li> \
-                    </ul> \
-                </div> \
-                <div class="replyComment animated fadeIn"> \
-                    <div class="avatarArea"> \
-                        <div class="avatar" style="background: url('+urlBase+'assets/img/'+userLogin.avatar+') center no-repeat; background-size: cover;"></div> \
-                    </div> \
-                    <div class="commentBox"> \
-                        <form class="replyForPost" post-id="'+reply.id+'"> \
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Reply a message"></textarea> \
-                            <div class="postArea row"> \
-                                <a href="#"><i class="xn xn-image"></i></a> \
-                                <input type="submit" class="button solid pull-right" value="Post"> \
+        dom  = $('<li class="repliesSection"> \
+                    <div class="post" id="'+reply.id+'"> \
+                        <div class="avatarArea"> \
+                            <a href="#"> \
+                                <div class="avatar" style="background: url('+urlBase+'assets/img/'+user.avatar+') center no-repeat; background-size: cover;"></div> \
+                            </a> \
+                        </div> \
+                        <div class="content"> \
+                            <ul class="meta"> \
+                                <li> \
+                                    <a class="username" href="">'+user.username+'</a> \
+                                </li> \
+                                <li> \
+                                    <i class="sparator xn xn-circle"></i> \
+                                </li> \
+                                <li> \
+                                    <span class="time">1 months ago</span> \
+                                </li> \
+                            </ul> \
+                            <p> \
+                                '+reply.content+' \
+                            </p> \
+                            <ul class="reply"> \
+                                <li class="voteup forVote" vote-for="'+reply.id+'" vote-type="1"> \
+                                    <a href="#"><i class="icon-plus-sign-alt"></i></a> \
+                                </li> \
+                                <li class="votedown forVote" vote-for="'+reply.id+'" vote-type="2"> \
+                                    <a href="#"><i class="icon-minus-sign-alt"></i></a> \
+                                </li> \
+                                <li> \
+                                    <i class="sparator xn xn-circle"></i> \
+                                </li> \
+                                <li> \
+                                    <a href="#" class="replyButton"><i class="icon-reply"></i>Reply</a> \
+                                </li> \
+                            </ul> \
+                        </div> \
+                        <div class="replyComment animated fadeIn"> \
+                            <div class="avatarArea"> \
+                                <div class="avatar" style="background: url('+urlBase+'assets/img/'+userLogin.avatar+') center no-repeat; background-size: cover;"></div> \
                             </div> \
-                        </form> \
+                            <div class="commentBox"> \
+                                <form class="replyForPost" post-id="'+reply.id+'"> \
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="Reply a message"></textarea> \
+                                    <div class="postArea row"> \
+                                        <a href="#"><i class="xn xn-image"></i></a> \
+                                        <input type="submit" class="button solid pull-right" value="Post"> \
+                                    </div> \
+                                </form> \
+                            </div> \
+                        </div> \
                     </div> \
-                </div> \
-            </div> \
-        </li>');
+                </li>');
 
     if (vote !== 0) {
         var voteDom = $('<span class="badgeVote animated bounceIn"> \
@@ -125,21 +125,30 @@ function makeReplyDom(reply, hasReply)
         }
     });
 
+    console.log(dom.html());
+
     if (hasReply) {
-        var ulClass = (reply.reply_for_thread_id) ? '' : 'nested';
-
-        dom.html('<ul class="'+ulClass+'"><li class="postPoint" reply-id="'+reply.id+'">'+dom.html()+'</li></ul>');
-
         $.each(reply.replies, function(index, replyChild) {
-            var replyChildHasReply = (replyChild.replies.length > 0) ? true : false;
+            var ulClass = (reply.reply_for_thread_id !== null) ? 'replyForThread' : 'nested';
+            dom.html('<ul class="'+ulClass+'" class="postPoint" reply-id="'+reply.id+'">'+dom.html()+'</ul>');
 
-            $(dom.find('li[reply-id="'+reply.id+'"]')[0]).append(makeReplyDom(replyChild, replyChildHasReply));
+            // console.log(dom);
+            var replyChildHasReply = (replyChild.replies.length > 0);
+
+            var newDom = makeReplyDom(replyChild, replyChildHasReply);
+
+            // $(newDom.find('li')[0]).html();
+            $(dom.find('ul[reply-id="'+reply.id+'"]')[0]).append(newDom);
         });
     } else {
-        dom.html('<ul class="nested postPoint" reply-id="'+reply.id+'">'+dom.html()+'</ul>');
+        var ulClass = (reply.reply_for_thread_id) ? 'replyForThread' : 'nested';
+
+        dom.html('<ul anu="gemes" class="'+ulClass+' postPoint" reply-id="'+reply.id+'">'+dom.html()+'</ul>');
     }
 
     $('.headerArea .count').text(counter);
+
+    // console.log(dom);
 
     return dom;
 }
@@ -279,7 +288,7 @@ $.getJSON(urlSite+'api/user/'+userId, function(data) {
         var replies = data.replies;
 
         $.each(replies, function(index, reply) {
-            var hasReply = (reply.replies.length > 0) ? true : false;
+            var hasReply = (reply.replies.length > 0);
 
             renderReply(reply, hasReply);
         });
