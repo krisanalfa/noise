@@ -72,6 +72,7 @@ a,
 }
 .commentBox .postArea a { font-size: 1.2em; color: #999; display: inline-block; vertical-align: middle; line-height: 28px; }
 .commentBox .postArea a:hover { color: #08c; }
+.commentBox .postArea input[type="submit"] { text-transform: uppercase; }
 
 .sortReg { margin-bottom: 20px; }
 .sortReg h3 { font-size: 1.1em; color: #999; }
