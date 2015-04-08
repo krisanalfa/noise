@@ -17,7 +17,7 @@
 <body>
     <div id="body">
         <div class="container-fluid">
-            <div class="box noiseReplyBox">
+            <div class="noiseReplyBox">
                 <div class="headerArea">
                     <nav class="row">
                         <div class="span-6">
@@ -86,6 +86,9 @@
         </div>
     </div>
     <!-- Dev JS -->
+    <script>
+        var userId = '{{ App::getInstance()->config("user") }}'
+    </script>
     <script type="text/javascript">var urlBase='{{ URL::base() }}',threadId='{{ $thread_id }}',urlSite='{{ URL::site() }}';</script>
     <script type="text/javascript" src="{{ Theme::base('assets/js/jquery/dist/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ Theme::base('assets/css/tshirt-popup/tshirt-popup.min.js') }}"></script>

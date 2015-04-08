@@ -6,7 +6,7 @@ return array(
         // Default configuration for all schemas
         'default' => array(
             // Limit the entries that shown, then paginate them
-            'limit' => 10,
+            // 'limit' => 10,
         ),
 
         // Resolver to find where the schemas config stored see in /config/collections folder

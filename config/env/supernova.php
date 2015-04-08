@@ -1,6 +1,8 @@
 <?php
 
 return array(
+    'user' => '54c84445c8577abd078b4567',
+
     'norm.datasources' => array(
         // Use mongodb
         'mongo' => array(

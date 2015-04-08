@@ -1,9 +1,22 @@
 var userLogin = {},
-    counter   = 0,
-    userId    = '55251cf68ead0efd180041a8' /* Alfa's ID */ ;
+    counter   = 0;
 
 $('.noiseReplyBox').attr('thread-id', threadId);
 $('.sort').hide();
+
+function updateIframeHeight()
+{
+    var iframe = $(parent.top.$('iframe.noiseIframe')[0]);
+    var body = document.body,
+        html = document.documentElement;
+
+    var height = Math.max( body.scrollHeight, body.offsetHeight,
+                           html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+    if (iframe) {
+        iframe.attr('style', 'width: 100% !important; border: none !important; overflow: hidden !important; height: '+height+'px !important;');
+    }
+}
 
 function renderReply(reply, hasReply)
 {
@@ -11,10 +24,8 @@ function renderReply(reply, hasReply)
 
     $('.sort').show();
     $('.commentArea ul#commentList').append(makeReplyDom(reply, hasReply));
-}
 
-function renderReplyForPost(reply, postId) {
-    $('li[reply-id="'+postId+'"]').append(makeReplyDom(reply, false));
+    updateIframeHeight();
 }
 
 function openWindow(url, windowTitle)
@@ -136,6 +147,8 @@ function makeReplyDom(reply, hasReply)
 $(document).on('click', ".replyButton", function(event) {
     event.preventDefault();
     $(this).closest(".post").find(".replyComment").addClass("open");
+
+    updateIframeHeight();
 });
 
 $(document).on('click', ".reply .voteup, .reply .votedown", function(event) {
@@ -221,8 +234,9 @@ $(document).on('submit', '.replyForPost', function(event) {
         dataType: 'json',
     })
     .success(function(data) {
-        form.closest('.replyComment').removeClass('open');
         form.closest('.postPoint').append(makeReplyDom(data, false));
+
+        updateIframeHeight();
     })
     .fail(function(err) {
         alert('Error while posting');
